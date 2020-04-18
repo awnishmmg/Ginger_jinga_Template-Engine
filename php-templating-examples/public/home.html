@@ -1,0 +1,49 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    {{loadcss}}
+    <title>:: {{title}} ::</title>
+</head>
+<body>
+    <h1>Welcome to {{pagename}} </h1>
+    <p>The server time {{vardate}}</p>
+    <nav>
+        <a href="about">About us</a>
+    </nav>
+
+
+    {% $res=mysqli_query($conn,"select * from std_info") %}
+
+    <table border="1" width="50%" align="center" rules="all">
+    <tr>
+        <th>#</th>
+        <th>name</th>
+        <th>email</th>
+    
+    </tr>
+    {% $a=1 %}
+    {% while($row=mysqli_fetch_assoc($res)): %}
+
+    <tr>
+        <td>{% echo $a %}</td>
+        <td>{% echo $row['name'] %}</td>
+        <td>{% echo $row['my_email'] %}</td>
+
+    </tr>
+    {% $a++; %}
+
+    {% endwhile; %}
+
+    </table>
+
+    <form action={{formaction}}  method="post" enctype="multipart/form-data">
+        
+        <input type="text" name="name"/>
+        <input type="submit" name="submit">
+
+    </form>
+    {{loadfooter}}
+</body>
+</html>

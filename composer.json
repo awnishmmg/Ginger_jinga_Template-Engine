@@ -1,0 +1,7 @@
+{
+    "name": "awisoft-net/ginger-jinja",
+    "description": "This is another update for simple template engine to render front end html pages for default",
+    "type": "library",
+    "license": "MIT",
+    "require": {}
+}
